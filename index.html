@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>стюшенция</title>
+  <meta name="theme-color" content="#0a0b12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Splash -->
+  <div id="splash" class="splash">
+    <div class="splash-inner">
+      <div class="splash-logo">N</div>
+      <div class="splash-title">Насте от морской свинки</div>
+      <div class="splash-sub">загрузка…</div>
+    </div>
+  </div>
+
+  <!-- Layered animated background -->
+  <canvas id="bg" aria-hidden="true" class="bg-canvas"></canvas>
+  <div class="bg-gradients" aria-hidden="true"></div>
+  <svg class="bg-waves" aria-hidden="true" viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path d="M0,96L48,128C96,160,192,224,288,250.7C384,277,480,267,576,250.7C672,235,768,213,864,197.3C960,181,1056,171,1152,176C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">Насте</a>
+      <nav class="nav">
+        <a href="#intro">Старт</a>
+        <a href="#dates">Даты</a>
+        <a href="#gallery">Фото</a>
+        <a href="#music">Музыка</a>
+        <a href="#extras">Ещё</a>
+      </nav>
+      <div class="clock" id="mskClock" title="Europe/Moscow">МСК 00:00:00</div>
+      <button id="themeToggle" class="btn-ghost" aria-label="Сменить тему" title="Сменить тему">☾</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section id="intro" class="section section-full hero">
+      <div class="container hero-inner">
+        <div class="hero-left fade-up">
+          <h1 class="display">Тихая гавань</h1>
+          <p class="lead">буду косячить - буду получать по башке, верно?)</p>
+          <div class="cta">
+            <a href="#dates" class="btn-primary">К датам</a>
+            <a href="#gallery" class="btn-outline">Смотреть фото</a>
+          </div>
+        </div>
+        <div class="hero-right fade-up" style="--d:.15s">
+          <div class="orb orb-a"></div>
+          <div class="orb orb-b"></div>
+          <div class="orb orb-c"></div>
+        </div>
+      </div>
+      <div class="scroll-indicator">листай</div>
+    </section>
+
+    <!-- DATES -->
+    <section id="dates" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Важные даты</h2>
+          <div class="section-controls">
+            <span class="muted">Москва, до секунды</span>
+            <label class="toggle"><input type="checkbox" id="fxToggle"><span>ЭКО режим</span></label>
+          </div>
+        </header>
+
+        <div class="grid-3 big-cards">
+          <article class="card tilt fade-up">
+            <h3 class="card-title">Дней дружбы</h3>
+            <p class="muted">с 01.09.2018</p>
+            <div class="days-together" id="daysTogether">—</div>
+          </article>
+
+          <article class="card tilt fade-up" style="--d:.08s">
+            <div class="card-title-row">
+              <h3 class="card-title">До ДР Насти</h3><span class="tag">09.12.2011</span>
+            </div>
+            <div class="count-row strict" id="naRow">
+              <div class="tile"><div class="digits"><span class="d">00</span></div><div class="lbl">дни</div></div>
+              <div class="tile"><div class="digits"><span class="h">00</span></div><div class="lbl">час</div></div>
+              <div class="tile"><div class="digits"><span class="m">00</span></div><div class="lbl">мин</div></div>
+              <div class="tile"><div class="digits"><span class="s">00</span></div><div class="lbl">сек</div></div>
+            </div>
+            <div class="progress-row">
+              <div class="ring-svg" id="naHoursRing"></div>
+              <div class="ring-svg" id="naMinutesRing"></div>
+              <div class="ring-svg" id="naSecondsRing"></div>
+            </div>
+          </article>
+
+          <article class="card tilt fade-up" style="--d:.16s">
+            <div class="card-title-row">
+              <h3 class="card-title">До ДР Егора</h3><span class="tag">28.12.2011</span>
+            </div>
+            <div class="count-row strict" id="egRow">
+              <div class="tile"><div class="digits"><span class="d">00</span></div><div class="lbl">дни</div></div>
+              <div class="tile"><div class="digits"><span class="h">00</span></div><div class="lbl">час</div></div>
+              <div class="tile"><div class="digits"><span class="m">00</span></div><div class="lbl">мин</div></div>
+              <div class="tile"><div class="digits"><span class="s">00</span></div><div class="lbl">сек</div></div>
+            </div>
+            <div class="progress-row">
+              <div class="ring-svg" id="egHoursRing"></div>
+              <div class="ring-svg" id="egMinutesRing"></div>
+              <div class="ring-svg" id="egSecondsRing"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Фотографии</h2>
+          <p class="muted">Клик — полноэкранный просмотр, свайп</p>
+        </header>
+        <div class="gallery">
+          <figure class="g-item"><img src="1.jpg" alt="Фото 1"><figcaption>Фото 1</figcaption></figure>
+          <figure class="g-item"><img src="2.jpg" alt="Фото 2"><figcaption>Фото 2</figcaption></figure>
+          <figure class="g-item"><img src="3.jpg" alt="Фото 3"><figcaption>Фото 3</figcaption></figure>
+          <figure class="g-item"><img src="4.jpg" alt="Фото 4"><figcaption>Фото 4</figcaption></figure>
+          <figure class="g-item"><img src="5.jpg" alt="Фото 5"><figcaption>Фото 5</figcaption></figure>
+          <figure class="g-item"><img src="6.jpg" alt="Фото 6"><figcaption>Фото 6</figcaption></figure>
+          <figure class="g-item"><img src="7.jpg" alt="Фото 7"><figcaption>Фото 7</figcaption></figure>
+          <figure class="g-item"><img src="8.jpg" alt="Фото 8"><figcaption>Фото 8</figcaption></figure>
+          <figure class="g-item"><img src="9.jpg" alt="Фото 9"><figcaption>Фото 9</figcaption></figure>
+          <figure class="g-item"><img src="10.jpg" alt="Фото 10"><figcaption>Фото 10</figcaption></figure>
+          <figure class="g-item"><img src="11.jpg" alt="Фото 11"><figcaption>Фото 11</figcaption></figure>
+          <figure class="g-item"><img src="12.jpg" alt="Фото 12"><figcaption>Фото 12</figcaption></figure>
+          <figure class="g-item"><img src="13.jpg" alt="Фото 13"><figcaption>Фото 13</figcaption></figure>
+          <figure class="g-item"><img src="14.jpg" alt="Фото 14"><figcaption>Фото 14</figcaption></figure>
+
+        </div>
+      </div>
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lb-close" aria-label="закрыть">×</button>
+        <button class="lb-prev" aria-label="назад">‹</button>
+        <figure class="lb-figure">
+          <img class="lb-img" alt="">
+          <figcaption class="lb-cap"></figcaption>
+        </figure>
+        <button class="lb-next" aria-label="вперёд">›</button>
+      </div>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Музыка</h2>
+          <p class="muted">Яндекс Музыка</p>
+        </header>
+        <div class="grid-2">
+          <article class="card tilt fade-up">
+            <h3 class="card-title">Плейлист Насти</h3>
+            <div class="embed">
+              <iframe frameborder="0" style="border:none;width:100%;height:556px;" src="https://music.yandex.ru/iframe/playlist/Chfufhfu/3"></iframe>
+            </div>
+          </article>
+          <article class="card tilt fade-up" style="--d:.08s">
+            <h3 class="card-title">Плейлист Егора</h3>
+            <div class="embed">
+              <iframe frameborder="0" style="border:none;width:100%;height:556px;" src="https://music.yandex.ru/iframe/playlist/W88005553535wgfututfutdftfuut/3"></iframe>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTRAS -->
+    <section id="extras" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Ещё</h2>
+          <p class="muted">Тонкие настройки</p>
+        </header>
+        <div class="grid-3">
+          <article class="card fade-up">
+            <h3 class="card-title">Оффлайн-режим</h3>
+            <p class="muted">Если включить сервис-воркер, сайт откроется без интернета.</p>
+            <button class="btn-outline" id="swBtn">Включить позже</button>
+          </article>
+          <article class="card fade-up" style="--d:.06s">
+            <h3 class="card-title">Скорость</h3>
+            <p class="muted">«ЭКО режим» — снижает плотность анимаций.</p>
+          </article>
+          <article class="card fade-up" style="--d:.12s">
+            <h3 class="card-title">Визуал</h3>
+            <p class="muted">Ринги на SVG со свечением, цифры с flip-анимацией, подписи у фото.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot">
+      <span>Сайт сделан Егором для Насти</span>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
