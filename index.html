@@ -3,39 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>стюшенция</title>
+  <title>Насте — сайт</title>
   <meta name="theme-color" content="#0a0b12" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Иконка сайта -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff3d9a'/%3E%3Cstop offset='1' stop-color='%237c5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='28' ry='28' width='128' height='128' fill='%230a0b12'/%3E%3Ccircle cx='64' cy='64' r='40' fill='url(%23g)'/%3E%3Ctext x='64' y='73' text-anchor='middle' font-family='Manrope, system-ui' font-size='54' fill='%23ffffff'%3EN%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Splash -->
   <div id="splash" class="splash">
     <div class="splash-inner">
       <div class="splash-logo">N</div>
-      <div class="splash-title">Насте от морской свинки</div>
-      <div class="splash-sub">загрузка…</div>
+      <div class="splash-title">загрузка…</div>
     </div>
   </div>
 
-  <!-- Layered animated background -->
+  <!-- Фон -->
   <canvas id="bg" aria-hidden="true" class="bg-canvas"></canvas>
   <div class="bg-gradients" aria-hidden="true"></div>
-  <svg class="bg-waves" aria-hidden="true" viewBox="0 0 1440 320" preserveAspectRatio="none">
-    <path d="M0,96L48,128C96,160,192,224,288,250.7C384,277,480,267,576,250.7C672,235,768,213,864,197.3C960,181,1056,171,1152,176C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-  </svg>
+
+  <!-- Полноэкранная анимация по клику на бренд -->
+  <div id="sequence" class="sequence" aria-hidden="true">
+    <div class="seq-layer stars"></div>
+    <div class="seq-layer rays"></div>
+    <div class="seq-layer rings"></div>
+    <div class="seq-title">СТЮХА</div>
+  </div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top">Насте</a>
+      <a class="brand" href="#top" id="brand">Насте</a>
       <nav class="nav">
         <a href="#intro">Старт</a>
         <a href="#dates">Даты</a>
         <a href="#gallery">Фото</a>
         <a href="#music">Музыка</a>
-        <a href="#extras">Ещё</a>
       </nav>
       <div class="clock" id="mskClock" title="Europe/Moscow">МСК 00:00:00</div>
       <button id="themeToggle" class="btn-ghost" aria-label="Сменить тему" title="Сменить тему">☾</button>
@@ -43,12 +47,11 @@
   </header>
 
   <main id="top">
-    <!-- HERO -->
     <section id="intro" class="section section-full hero">
       <div class="container hero-inner">
         <div class="hero-left fade-up">
-          <h1 class="display">Тихая гавань</h1>
-          <p class="lead">буду косячить - буду получать по башке, верно?)</p>
+          <h1 class="display">буду косячить — получу по башке, верно?</h1>
+          <p class="lead">Без лишних слов. Красиво, быстро, по делу.</p>
           <div class="cta">
             <a href="#dates" class="btn-primary">К датам</a>
             <a href="#gallery" class="btn-outline">Смотреть фото</a>
@@ -63,67 +66,60 @@
       <div class="scroll-indicator">листай</div>
     </section>
 
-    <!-- DATES -->
     <section id="dates" class="section section-alt">
       <div class="container">
         <header class="section-head">
           <h2 class="section-title">Важные даты</h2>
-          <div class="section-controls">
-            <span class="muted">Москва, до секунды</span>
-            <label class="toggle"><input type="checkbox" id="fxToggle"><span>ЭКО режим</span></label>
-          </div>
         </header>
 
         <div class="grid-3 big-cards">
           <article class="card tilt fade-up">
             <h3 class="card-title">Дней дружбы</h3>
-            <p class="muted">с 01.09.2018</p>
+            <p class="muted">с 01.09.2017</p>
             <div class="days-together" id="daysTogether">—</div>
           </article>
 
           <article class="card tilt fade-up" style="--d:.08s">
             <div class="card-title-row">
-              <h3 class="card-title">До ДР Насти</h3><span class="tag">09.12.2011</span>
+              <h3 class="card-title">До ДР Насти</h3><span class="tag">09.12</span>
             </div>
-            <div class="count-row strict" id="naRow">
-              <div class="tile"><div class="digits"><span class="d">00</span></div><div class="lbl">дни</div></div>
-              <div class="tile"><div class="digits"><span class="h">00</span></div><div class="lbl">час</div></div>
-              <div class="tile"><div class="digits"><span class="m">00</span></div><div class="lbl">мин</div></div>
-              <div class="tile"><div class="digits"><span class="s">00</span></div><div class="lbl">сек</div></div>
+            <div class="count-grid" id="naRow">
+              <div class="flip-tile"><div class="flip"><div class="top">00</div><div class="bottom">00</div></div><div class="lbl">дни</div></div>
+              <div class="flip-tile"><div class="flip"><div class="top">00</div><div class="bottom">00</div></div><div class="lbl">часы</div></div>
+              <div class="flip-tile"><div class="flip"><div class="top">00</div><div class="bottom">00</div></div><div class="lbl">мин</div></div>
+              <div class="flip-tile"><div class="flip"><div class="top">00</div><div class="bottom">00</div></div><div class="lbl">сек</div></div>
             </div>
-            <div class="progress-row">
-              <div class="ring-svg" id="naHoursRing"></div>
-              <div class="ring-svg" id="naMinutesRing"></div>
-              <div class="ring-svg" id="naSecondsRing"></div>
+            <div class="rings">
+              <div class="ring-svg" id="naH"></div>
+              <div class="ring-svg" id="naM"></div>
+              <div class="ring-svg" id="naS"></div>
             </div>
           </article>
 
           <article class="card tilt fade-up" style="--d:.16s">
             <div class="card-title-row">
-              <h3 class="card-title">До ДР Егора</h3><span class="tag">28.12.2011</span>
+              <h3 class="card-title">До ДР Егора</h3><span class="tag">28.12</span>
             </div>
-            <div class="count-row strict" id="egRow">
-              <div class="tile"><div class="digits"><span class="d">00</span></div><div class="lbl">дни</div></div>
-              <div class="tile"><div class="digits"><span class="h">00</span></div><div class="lbl">час</div></div>
-              <div class="tile"><div class="digits"><span class="m">00</span></div><div class="lbl">мин</div></div>
-              <div class="tile"><div class="digits"><span class="s">00</span></div><div class="lbl">сек</div></div>
+            <div class="count-grid" id="egRow">
+              <div class="flip-tile"><div class="flip"><div class="top">00</div><div class="bottom">00</div></div><div class="lbl">дни</div></div>
+              <div class="flip-tile"><div class="flip"><div class="top">00</div><div class="bottom">00</div></div><div class="lbl">часы</div></div>
+              <div class="flip-tile"><div class="flip"><div class="top">00</div><div class="bottom">00</div></div><div class="lbl">мин</div></div>
+              <div class="flip-tile"><div class="flip"><div class="top">00</div><div class="bottom">00</div></div><div class="lbl">сек</div></div>
             </div>
-            <div class="progress-row">
-              <div class="ring-svg" id="egHoursRing"></div>
-              <div class="ring-svg" id="egMinutesRing"></div>
-              <div class="ring-svg" id="egSecondsRing"></div>
+            <div class="rings">
+              <div class="ring-svg" id="egH"></div>
+              <div class="ring-svg" id="egM"></div>
+              <div class="ring-svg" id="egS"></div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- GALLERY -->
     <section id="gallery" class="section">
       <div class="container">
         <header class="section-head">
           <h2 class="section-title">Фотографии</h2>
-          <p class="muted">Клик — полноэкранный просмотр, свайп</p>
         </header>
         <div class="gallery">
           <figure class="g-item"><img src="1.jpg" alt="Фото 1"><figcaption>Фото 1</figcaption></figure>
@@ -140,7 +136,6 @@
           <figure class="g-item"><img src="12.jpg" alt="Фото 12"><figcaption>Фото 12</figcaption></figure>
           <figure class="g-item"><img src="13.jpg" alt="Фото 13"><figcaption>Фото 13</figcaption></figure>
           <figure class="g-item"><img src="14.jpg" alt="Фото 14"><figcaption>Фото 14</figcaption></figure>
-
         </div>
       </div>
       <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -154,50 +149,23 @@
       </div>
     </section>
 
-    <!-- MUSIC -->
     <section id="music" class="section section-alt">
       <div class="container">
         <header class="section-head">
           <h2 class="section-title">Музыка</h2>
-          <p class="muted">Яндекс Музыка</p>
         </header>
         <div class="grid-2">
           <article class="card tilt fade-up">
             <h3 class="card-title">Плейлист Насти</h3>
             <div class="embed">
-              <iframe frameborder="0" style="border:none;width:100%;height:556px;" src="https://music.yandex.ru/iframe/playlist/Chfufhfu/3"></iframe>
+              <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;height:556px;" src="https://music.yandex.ru/iframe/playlist/Chfufhfu/3"></iframe>
             </div>
           </article>
           <article class="card tilt fade-up" style="--d:.08s">
             <h3 class="card-title">Плейлист Егора</h3>
             <div class="embed">
-              <iframe frameborder="0" style="border:none;width:100%;height:556px;" src="https://music.yandex.ru/iframe/playlist/W88005553535wgfututfutdftfuut/3"></iframe>
+              <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;height:556px;" src="https://music.yandex.ru/iframe/playlist/W88005553535wgfututfutdftfuut/3"></iframe>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXTRAS -->
-    <section id="extras" class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2 class="section-title">Ещё</h2>
-          <p class="muted">Тонкие настройки</p>
-        </header>
-        <div class="grid-3">
-          <article class="card fade-up">
-            <h3 class="card-title">Оффлайн-режим</h3>
-            <p class="muted">Если включить сервис-воркер, сайт откроется без интернета.</p>
-            <button class="btn-outline" id="swBtn">Включить позже</button>
-          </article>
-          <article class="card fade-up" style="--d:.06s">
-            <h3 class="card-title">Скорость</h3>
-            <p class="muted">«ЭКО режим» — снижает плотность анимаций.</p>
-          </article>
-          <article class="card fade-up" style="--d:.12s">
-            <h3 class="card-title">Визуал</h3>
-            <p class="muted">Ринги на SVG со свечением, цифры с flip-анимацией, подписи у фото.</p>
           </article>
         </div>
       </div>
